@@ -32,13 +32,12 @@ class App < Roda
   # Server rendering
   def prerender
     start = Time.now
-    store = store()
     router = Clearwater::Router.new(location: { pathname: request.path }) do
-      route 'sign_in' => SignIn.new(store)
-      route 'register' => UserRegistration.new(store)
+      route 'sign_in' => SignIn.new
+      route 'register' => UserRegistration.new
     end
     app = Clearwater::Application.new(
-      component: Layout.new(store),
+      component: Layout.new,
       router: router,
     )
     html = app.render
@@ -46,14 +45,4 @@ class App < Roda
     puts "Prerendered in #{(finish - start) * 1000}ms\n"
     html
   end
-
-  def store
-    @store ||= Store.new(
-      session: {
-        current_user: nil,
-      },
-    )
-  end
-
-  Store = Struct.new(:state)
 end
