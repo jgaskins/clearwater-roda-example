@@ -49,9 +49,9 @@ app = Clearwater::Application.new(
 # If app.debug? is truthy, it will show debugging info, which right now
 # is just the time to render to the virtual DOM and the time to patch to
 # the actual DOM.
-def app.debug?
-  true
-end
+# def app.debug?
+#   true
+# end
 
 # This will wire up the outlets for the current URL and render the
 # application. The application will not be rendered until this is called.
