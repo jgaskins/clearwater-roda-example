@@ -33,7 +33,7 @@ class UserRegistration
           )
         ),
         if @has_entered_password && !@valid_password
-          div({ color: 'red' }, "Password must be >= 8 characters")
+          div({ style: { color: 'red' } }, "Password must be >= 8 characters")
         end,
         div(input(type: 'submit', value: 'Register!', disabled: !valid?)),
       ]),
