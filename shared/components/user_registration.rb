@@ -10,6 +10,7 @@ class UserRegistration
         div(
           input(
             type: :email,
+            placeholder: 'email',
             onkeyup: method(:set_email),
             onblur: method(:has_entered_email!),
             style: {
@@ -23,6 +24,7 @@ class UserRegistration
         div(
           input(
             type: :password,
+            placeholder: 'password',
             onkeyup: method(:set_password),
             onblur: method(:has_entered_password!),
             style: {
